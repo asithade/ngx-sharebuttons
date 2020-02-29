@@ -6,7 +6,6 @@ import { NgProgressModule } from '@ngx-progressbar/core';
 import { NgProgressRouterModule } from '@ngx-progressbar/router';
 import { NgProgressHttpModule } from '@ngx-progressbar/http';
 import { HighlightModule } from 'ngx-highlightjs';
-import { SHARE_BUTTONS_CONFIG } from '@ngx-share/core';
 
 import { SharedModule } from './shared';
 import { AppRoutingModule } from './app-routing.module';
@@ -17,12 +16,13 @@ import { DocsService } from './docs/docs.service';
 import xml from 'highlight.js/lib/languages/xml';
 import scss from 'highlight.js/lib/languages/scss';
 import typescript from 'highlight.js/lib/languages/typescript';
+import { SHARE_BUTTONS_CONFIG } from 'projects/core/src/public_api';
 
 export function hljsLanguages() {
   return [
-    {name: 'typescript', func: typescript},
-    {name: 'scss', func: scss},
-    {name: 'xml', func: xml}
+    { name: 'typescript', func: typescript },
+    { name: 'scss', func: scss },
+    { name: 'xml', func: xml }
   ];
 }
 
