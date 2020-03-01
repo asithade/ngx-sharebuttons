@@ -19,7 +19,7 @@ import { SHARE_BUTTONS_CONFIG, ShareButtonsConfig } from './share.models';
   ]
 })
 export class ShareModule {
-  static withConfig(config?: ShareButtonsConfig): ModuleWithProviders {
+  static withConfig(config?: ShareButtonsConfig): ModuleWithProviders<ShareModule> {
     return {
       ngModule: ShareModule,
       providers: [

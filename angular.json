@@ -10,13 +10,14 @@
       "prefix": "app",
       "schematics": {
         "@schematics/angular:component": {
-          "styleext": "scss"
+          "style": "scss"
         }
       },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "aot": true,
             "outputPath": "dist/ngx-share",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -33,6 +34,12 @@
           },
           "configurations": {
             "production": {
+              "budgets": [
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
+                }
+              ],
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -135,7 +142,8 @@
           },
           "configurations": {
             "production": {
-              "project": "projects/core/ng-package.prod.json"
+              "project": "projects/core/ng-package.prod.json",
+              "tsConfig": "projects/core/tsconfig.lib.prod.json"
             }
           }
         },
@@ -175,7 +183,8 @@
           },
           "configurations": {
             "production": {
-              "project": "projects/button/ng-package.prod.json"
+              "project": "projects/button/ng-package.prod.json",
+              "tsConfig": "projects/button/tsconfig.lib.prod.json"
             }
           }
         },
@@ -215,7 +224,8 @@
           },
           "configurations": {
             "production": {
-              "project": "projects/buttons/ng-package.prod.json"
+              "project": "projects/buttons/ng-package.prod.json",
+              "tsConfig": "projects/buttons/tsconfig.lib.prod.json"
             }
           }
         },
@@ -248,13 +258,14 @@
       "prefix": "app",
       "schematics": {
         "@schematics/angular:component": {
-          "styleext": "scss"
+          "style": "scss"
         }
       },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "aot": true,
             "outputPath": "docs",
             "index": "projects/demo/src/index.html",
             "main": "projects/demo/src/main.ts",
@@ -271,6 +282,12 @@
           },
           "configurations": {
             "production": {
+              "budgets": [
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
+                }
+              ],
               "fileReplacements": [
                 {
                   "replace": "projects/demo/src/environments/environment.ts",
@@ -365,5 +382,8 @@
       }
     }
   },
-  "defaultProject": "ngx-share"
+  "defaultProject": "ngx-share",
+  "cli": {
+    "analytics": false
+  }
 }

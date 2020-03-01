@@ -21,7 +21,7 @@ import { ShareButton } from './share-button';
   ]
 })
 export class ShareButtonModule {
-  static withConfig(config?: ShareButtonsConfig): ModuleWithProviders {
+  static withConfig(config?: ShareButtonsConfig): ModuleWithProviders<ShareButtonModule> {
     return {
       ngModule: ShareButtonModule,
       providers: [{provide: SHARE_BUTTONS_CONFIG, useValue: config}]

@@ -22,7 +22,7 @@ import { ExpandButton } from './expand-button';
   ]
 })
 export class ShareButtonsModule {
-  static withConfig(config?: ShareButtonsConfig): ModuleWithProviders {
+  static withConfig(config?: ShareButtonsConfig): ModuleWithProviders<ShareButtonsModule> {
     return {
       ngModule: ShareButtonsModule,
       providers: [{provide: SHARE_BUTTONS_CONFIG, useValue: config}]
